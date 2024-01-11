@@ -57,9 +57,9 @@
 
 ## 6.图片
 ### 与链接类似，但在方括号前加一个感叹号 !
-例如： `![github图标](https://wangjie11.github.io/blog/logo.png)`
+例如： `![我的LOGO](https://wangjie11.github.io/blog/logo.png)`
 ::: details 点击查看效果
-![my logo](/logo.png)
+![my logo](https://wangjie11.github.io/blog/logo.png)
 :::
 
 ## 7.代码

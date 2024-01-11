@@ -1,10 +1,10 @@
-### github action部署react+vite工程流程 
+# 部署react+vite至github pages项目流程 
 
 1. 在仓库根目录下创建文件夹.github/workflows
-2. 在workflows文件夹中创建名为xxx.yml文件，文件名可以随意，但扩展名必须为yml或者ymal
+2. 在workflows文件夹中创建名为xxx.yml文件，文件名可以随意，但扩展名必须为yml或者yaml
 3. 将整个仓库提交到github
 
-### yml文件示例(publish.yml)
+## yml文件示例(publish.yml)
 ```yml
 name: Github Action testing #为此workflow命名
 on:
@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest #希望运行的操作系统
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 #此action将代码检出
+        uses: actions/checkout@v4 #此action负责将代码检出
 
       - name: set node
-        uses: actions/setup-node@v4 #此action设置node版本
+        uses: actions/setup-node@v4 #此action负责设置node版本
         with:
           node-version: '18.x'
 
@@ -30,7 +30,7 @@ jobs:
           npm run build
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4 #此action用来部署一个站点
+        uses: JamesIves/github-pages-deploy-action@v4 #此action负责部署一个站点
         with:
           token: ${{ secrets.ACCESS_TOKEN }} #配置github token，最新版本可忽略此配置，除非你想使用其他token，secrets.ACCESS_TOKEN需要在仓库的setting中配置
           branch: gh-pages #JamesIves会创建一个打包后的分支，使用此分支来进行部署，值为分支名称
@@ -38,5 +38,20 @@ jobs:
 
 ```
 
-### 注意事项
-yml文件对于缩进比较敏感，书写时需应注意行缩进，建议使用github yml编辑器
+## 注意事项
+* yml文件对于空格和缩进比较敏感，书写时需应注意缩进，建议使用github yml编辑器
+
+* 需要在项目中设置`base`路径，例如部署地址为`https://user.github.io/myProject` 那么就要在项目vite.config.js中配置base为`/myProject`，否则会找不到js和css文件
+### 配置示例:
+```javascript
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+export default defineConfig(() => {
+  return {
+    base: "/myProject",
+    publicDir: "public",
+    plugins: [react()],
+  };
+});
+```

@@ -22,7 +22,8 @@ export default defineConfig({
       {
         text: 'Github Actions',
         items: [
-          { text: '部署React+vite工程', link: '/github_actions/deploy-react-with-vite' }
+          { text: '部署React+vite工程', link: '/github_actions/deploy-react-with-vite' },
+          { text: '部署vitepress工程', link: '/github_actions/deploy-vitepress' }
         ]
       },
     ],
