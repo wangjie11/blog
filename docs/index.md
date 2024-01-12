@@ -42,16 +42,12 @@ const { days } = formatPeriod(remain);
 
 # Home
 
-### 除夕倒计时
+## 除夕倒计时
+
 <pre v-if="days > 0">距离除夕还剩 <strong>{{ days }}</strong> 天</pre>
 <pre v-else-if="days === 0">Happy New Year</pre>
 <pre v-else>收拾行李，准备出门去打工</pre>
 
+## More
 
-### 介绍
-
-使用vitepress构建，并部署在github pages。
-#
-此文档内所有内容皆为个人学习记录，转载请说明
-
-
+使用[VitePress](https://vitepress.dev/zh/)构建，并部署在 github pages。

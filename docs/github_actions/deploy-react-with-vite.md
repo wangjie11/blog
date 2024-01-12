@@ -1,4 +1,4 @@
-# 部署react+vite至github pages项目流程 
+# 部署react+vite至github pages项目流程
 
 1. 在仓库根目录下创建文件夹.github/workflows
 2. 在workflows文件夹中创建名为xxx.yml文件，文件名可以随意，但扩展名必须为yml或者yaml
